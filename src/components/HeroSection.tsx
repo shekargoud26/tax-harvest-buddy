@@ -1,6 +1,7 @@
 
-import { ArrowDown, TrendingUp, PiggyBank } from "lucide-react";
+import { ArrowDown, TrendingUp, PiggyBank, BarChart3, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface HeroSectionProps {
   onSaveNowClick: () => void;
@@ -34,34 +35,63 @@ const HeroSection = ({ onSaveNowClick }: HeroSectionProps) => {
           </Button>
         </div>
         
-        {/* Graphics depicting money saving */}
+        {/* Enhanced Tax Savings visualization */}
         <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center items-center">
-          <div className="relative">
-            <div className="absolute -top-4 -left-4 bg-mild-green-200 rounded-full p-4 animate-bounce-subtle">
-              <PiggyBank className="h-12 w-12 text-primary" />
-            </div>
-            <div className="bg-white rounded-lg shadow-xl p-6 border border-mild-green-100">
-              <div className="text-center mb-4">
-                <h3 className="text-2xl font-bold text-gray-800">Tax Savings</h3>
-                <p className="text-gray-600">Optimize your investments</p>
-              </div>
-              <div className="flex items-center justify-center gap-4 p-4 bg-mild-green-50 rounded-lg">
-                <div className="text-center">
-                  <p className="text-sm text-gray-500">Without Harvesting</p>
-                  <p className="font-bold text-xl text-destructive">₹25,000</p>
+          <Card className="w-full max-w-md border-mild-green-100 shadow-lg overflow-hidden">
+            <div className="bg-mild-green-100 p-4 flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="bg-white rounded-full p-2 mr-3">
+                  <Calculator className="h-6 w-6 text-primary" />
                 </div>
-                <div className="text-4xl text-gray-400">→</div>
-                <div className="text-center">
-                  <p className="text-sm text-gray-500">With Harvesting</p>
-                  <p className="font-bold text-xl text-primary">₹5,000</p>
-                </div>
+                <h3 className="text-xl font-bold text-gray-800">Tax Savings Calculator</h3>
               </div>
-              <div className="mt-4 flex items-center justify-center text-primary">
-                <TrendingUp className="h-6 w-6 mr-2" />
-                <span className="font-semibold">Save ₹20,000 in taxes</span>
+              <div className="bg-primary rounded-full p-2 animate-bounce-subtle">
+                <PiggyBank className="h-6 w-6 text-white" />
               </div>
             </div>
-          </div>
+            
+            <CardContent className="p-6">
+              <div className="mb-6 text-left border-b border-mild-green-100 pb-4">
+                <p className="text-gray-600 mb-1">Total Pre-tax Gains</p>
+                <p className="text-2xl font-bold text-gray-800">₹3,00,000</p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white rounded-lg border border-red-100 p-4 text-left">
+                  <p className="text-sm text-gray-500 mb-1">Without Harvesting</p>
+                  <div className="flex items-center">
+                    <div className="bg-red-50 p-1 rounded mr-2">
+                      <BarChart3 className="h-5 w-5 text-destructive" />
+                    </div>
+                    <span className="font-bold text-xl text-destructive">₹2,78,000</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2">After 7.5% LTCG tax</p>
+                </div>
+                
+                <div className="bg-white rounded-lg border border-mild-green-200 p-4 text-left">
+                  <p className="text-sm text-gray-500 mb-1">With Harvesting</p>
+                  <div className="flex items-center">
+                    <div className="bg-mild-green-50 p-1 rounded mr-2">
+                      <TrendingUp className="h-5 w-5 text-primary" />
+                    </div>
+                    <span className="font-bold text-xl text-primary">₹3,00,000</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2">0% tax with harvesting</p>
+                </div>
+              </div>
+              
+              <div className="mt-6 pt-4 border-t border-mild-green-100">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700 font-medium">Total Savings:</span>
+                  <span className="text-xl font-bold text-primary">₹22,000</span>
+                </div>
+                <div className="w-full bg-gray-100 h-2 rounded-full mt-2 overflow-hidden">
+                  <div className="bg-primary h-full rounded-full" style={{ width: '7.5%' }}></div>
+                </div>
+                <p className="text-xs text-right mt-1 text-gray-500">7.5% of your gains saved</p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
       

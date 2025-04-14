@@ -43,7 +43,7 @@ const HeroSection = ({ onSaveNowClick }: HeroSectionProps) => {
             <div className="absolute -bottom-10 -left-10 bg-mild-green-100 rounded-full p-6 animate-bounce-subtle">
               <Wallet className="h-12 w-12 text-primary" />
             </div>
-            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+            <div className="bg-transparent rounded-lg shadow-lg p-8 text-center">
               <HandCoins className="h-24 w-24 mx-auto text-primary mb-6" />
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Smart Tax Savings</h3>
               <p className="text-gray-600">

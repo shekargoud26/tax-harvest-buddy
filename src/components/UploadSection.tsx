@@ -1,17 +1,16 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/sonner";
-import { useToast } from "@/hooks/use-toast";
 import { LTCGData } from "@/types/ltcg";
 
 interface UploadSectionProps {
   onDataReceived: (data: LTCGData) => void;
+  onDataProcessing: () => void;
 }
 
-const UploadSection = ({ onDataReceived }: UploadSectionProps) => {
+const UploadSection = ({ onDataReceived, onDataProcessing }: UploadSectionProps) => {
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState("");
   const [isUploading, setIsUploading] = useState(false);
@@ -42,6 +41,7 @@ const UploadSection = ({ onDataReceived }: UploadSectionProps) => {
     }
     
     setIsUploading(true);
+    onDataProcessing(); // Signal that data processing has started
     
     try {
       // In a real implementation, this would be an actual API call

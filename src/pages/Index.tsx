@@ -9,14 +9,26 @@ import { LTCGData } from "@/types/ltcg";
 
 const Index = () => {
   const [ltcgData, setLtcgData] = useState<LTCGData | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const uploadSectionRef = useRef<HTMLDivElement>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
   
   const scrollToUploadSection = () => {
     uploadSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const scrollToResults = () => {
+    resultsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   
+  const handleDataProcessing = () => {
+    setIsLoading(true);
+    scrollToResults();
+  };
+
   const handleDataReceived = (data: LTCGData) => {
     setLtcgData(data);
+    setIsLoading(false);
   };
   
   return (
@@ -28,11 +40,16 @@ const Index = () => {
       
       {/* Upload Section */}
       <div ref={uploadSectionRef} className="scroll-section">
-        <UploadSection onDataReceived={handleDataReceived} />
+        <UploadSection 
+          onDataProcessing={handleDataProcessing} 
+          onDataReceived={handleDataReceived} 
+        />
       </div>
       
       {/* Results Table */}
-      {ltcgData && <ResultsTable data={ltcgData} />}
+      <div ref={resultsRef}>
+        {(isLoading || ltcgData) && <ResultsTable data={ltcgData} isLoading={isLoading} />}
+      </div>
       
       {/* Footer */}
       <Footer />

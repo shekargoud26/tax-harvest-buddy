@@ -46,19 +46,15 @@
   }
 }
 
+/* Modified section styles without snap-scroll functionality */
 .scroll-section {
-  height: 100vh;
-  scroll-snap-align: start;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.scroll-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-}
+/* Removed scroll-container snap styling */
 
 .ltcg-positive {
   color: rgb(22 163 74);

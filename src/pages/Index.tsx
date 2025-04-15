@@ -20,7 +20,7 @@ const Index = () => {
   };
   
   return (
-    <div className={`${ltcgData ? "" : "scroll-container"}`}>
+    <div>
       <Toaster />
       
       {/* Hero Section */}

@@ -1,5 +1,5 @@
 
-import { ArrowDown, PiggyBank, HandCoins, MoneyBanknote } from "lucide-react";
+import { ArrowDown, PiggyBank, HandCoins, Banknote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface HeroSectionProps {
@@ -41,7 +41,7 @@ const HeroSection = ({ onSaveNowClick }: HeroSectionProps) => {
               <HandCoins className="h-12 w-12 text-primary" />
             </div>
             <div className="absolute -bottom-10 -left-10 bg-mild-green-100 rounded-full p-6 animate-bounce-subtle">
-              <MoneyBanknote className="h-12 w-12 text-primary" />
+              <Banknote className="h-12 w-12 text-primary" />
             </div>
             <div className="bg-transparent rounded-lg p-8 text-center flex flex-col items-center justify-center">
               <PiggyBank className="h-48 w-48 mx-auto text-primary mb-4" />
@@ -58,4 +58,3 @@ const HeroSection = ({ onSaveNowClick }: HeroSectionProps) => {
 };
 
 export default HeroSection;
-

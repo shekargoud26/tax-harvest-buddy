@@ -1,5 +1,4 @@
-
-import { Github, Bitcoin } from "lucide-react";
+import { Github, Bitcoin, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -42,8 +41,11 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 border-t border-mild-green-500 pt-8 text-center">
-          <p className="text-sm text-mild-green-100">
+          <p className="text-sm text-mild-green-100 flex items-center justify-center">
             &copy; {new Date().getFullYear()} LTCG Harvester. All rights reserved.
+          </p>
+          <p className="text-sm text-mild-green-100 mt-2 flex items-center justify-center">
+            Made with <Heart className="text-red-500 mx-1 h-4 w-4 fill-red-500" /> with AI
           </p>
         </div>
       </div>

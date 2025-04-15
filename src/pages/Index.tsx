@@ -20,14 +20,14 @@ const Index = () => {
   };
   
   return (
-    <div className="scroll-container">
+    <div className={`${ltcgData ? "" : "scroll-container"}`}>
       <Toaster />
       
       {/* Hero Section */}
       <HeroSection onSaveNowClick={scrollToUploadSection} />
       
       {/* Upload Section */}
-      <div ref={uploadSectionRef}>
+      <div ref={uploadSectionRef} className="scroll-section">
         <UploadSection onDataReceived={handleDataReceived} />
       </div>
       
